@@ -1,0 +1,723 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --white-color: #fff;
+    --dark-color: #222;
+    --body-bg-color:#fff;
+    --section-bg-color:#202834;
+    --navigation-item-hover-color: #3b5378;
+
+    --text-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    --box-shadow: 0 5px 25px rgb(0 0 0 /20%);
+
+    --scroll-bar-color: #fff;
+    --scroll-thumb-color: #282f4e;
+    --scroll-thumb-hiver-color:#454f6b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+    background: var(--body-bg-color);
+}
+
+
+
+/* ########---HEADER---############################################################################################################## */
+header{
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: calc(5rem + 1rem);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    transition-property: height, backgroud;
+}
+
+
+
+/* héo xuống heder có mày */
+header.sticky{
+    height: calc(2.5rem + 1rem);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* hết kéo xuống header có màu */
+
+
+
+header .nav-bar{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px;
+    transition: 0.3s ease;
+}
+
+
+
+.nav-close-btn, .nav-menu-btn{
+    display: none;
+}
+
+
+
+/* .nav-bar .logo{
+    display: flex;
+    align-items: center;
+
+    color: var(--white-color);
+    font-size: rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: var(--text-shadow);
+} */
+
+
+
+.nav-bar .logo img{
+    height: 3rem;
+}
+
+
+
+.navigation .nav-items a{
+    color: var(--white-color);
+    font-size: 1em;
+    text-decoration: none;
+    text-shadow: var(--text-shadow);
+}
+
+
+
+.navigation .nav-items a i{
+    display: none;
+}
+
+
+
+.navigation .nav-items a:not(:last-child){
+    margin-right: 45px;
+}
+
+
+/*#######---SLIDER----############################################################################################################### */
+.home{
+    min-height: 100vh;
+}
+
+
+
+.bg-slider{
+    z-index: 777;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+
+.swiper-slide .swiper-slide{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+.bg-slider .swiper-slide img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+
+
+.swiper-slide .text-content{
+    position: absolute;
+    top: 25%;
+    color: var(--white-color);
+    margin: 0 200px;
+    transition: 0.3s ease;
+}
+
+
+
+.swiper-slide .text-content .title{
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: var(--text-shadow);
+    margin-bottom: 20px;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+
+
+.swiper-slide-active .text-content .title{
+    transform:  translateY(0);
+    opacity: 1;
+    transition: 1s ease;
+}
+
+
+
+.swiper-slide .text-content .title .title_span{
+    font-size: 0.5em;
+    font-weight: 300;
+}
+
+
+
+.swiper-slide .text-content p{
+    font-size: 0.9em;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter:  blur(3px);
+    text-shadow: var(--text-shadow);
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+    transform: translateX(-80px);
+    opacity: 0;
+}
+
+
+
+.swiper-slide-active .text-content p{
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1s ease;
+    transition-delay: 0.3s;
+    transition-property: transform, opacity;
+}
+
+
+
+.dark-layer::before{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.1);
+
+}
+
+
+
+/* button */
+.swiper-slide .text-content .read-btn{
+    border: none;
+    outline: none;
+    background: var(--white-color);
+    color: var(--dark-color);
+    font-size: 1em;
+    font-weight: 500;
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+
+
+.swiper-slide-active .text-content .read-btn{
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1s ease;
+    transition-delay: 0.3s;
+    transition-property: transform, opacity;
+}
+
+
+
+.swiper-slide .text-content .read-btn i{
+    font-size: 1.6em;
+    transition: 0.3s ease;
+}
+
+
+
+.swiper-slide .text-content .read-btn:hover i{
+    transform: translateX(5px);
+}
+
+
+
+.thumbs-container{
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.thumbs-container img{
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+
+
+
+/*##----NEWS---#################################################################################################################### */
+.news{
+    margin: 8rem 10rem;
+    
+}
+
+.news h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    
+}
+
+.news img{
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none; 
+    margin-bottom: 1rem;
+}
+
+.news .news-items{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.news .news-item{
+    cursor: pointer;
+}
+
+.news .news-item .news-span{
+    font-size: 0.8rem;
+}
+.news .news-item h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-news{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    background: var(--dark-color);
+    color: var(--white-color);
+    font-size: 1em;
+    font-weight: 400;
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.5s ease;
+}   
+
+.btn:hover{
+    background: #ee1d1d;
+}
+
+
+
+
+
+
+
+/*##----NEWS---#################################################################################################################### */
+
+.car{
+    margin: 8rem 10rem;
+}
+
+
+
+.car h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    
+}
+
+.car .car-items .car-item{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.car .car-items .car-item button{
+    border: none;
+    outline: none;
+    background: var(--dark-color);
+    color: var(--white-color);
+    font-size: 0.8em;
+    margin: 0.3rem;
+    font-weight: 400;
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.5s ease;
+}
+
+.car .car-items .car-item button:hover{
+    background: #ee1d1d;
+}
+
+
+
+.car .car-items .car-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+   
+}
+
+.car .car-items .car-search input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--dark-color);
+    width: 16rem;
+}
+
+
+
+
+.car .car-item-contents{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;  
+    width: 100%;
+    height: 100%; 
+}
+
+.car .car-item-contents .car-item-content{
+   position: relative;
+   overflow: hidden;
+ 
+}
+
+.car .car-item-contents .car-item-content img{
+    width: 20rem;
+    height: 24rem;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+.car .car-item-contents .car-item-content .title-car{
+    position: absolute;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    color: var(--white-color);
+    background:#0000006c;
+    transition: 0.5s ease;
+    opacity: 0;
+    width: 20rem;
+    height: 24rem;
+    cursor: pointer;
+}
+
+
+
+.car .car-item-contents .car-item-content .title-car:hover{
+    opacity:1;
+}
+
+.car .car-item-contents .car-item-content .title-car .span-car{
+    font-size: 1.6rem;
+    border-left: 3px solid #ee1d1d;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.car .car-item-contents .car-item-content .title-car  p{
+    background: #ee1d1d;
+    color: var(--white-color);
+    display: flex;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding: 8px 0;
+    font-weight: 300;
+}
+
+
+
+/*##----FOOTER---#################################################################################################################### */
+footer{
+    background-color: var(--dark-color);
+    height: 6rem;
+    color: var(--white-color);
+}
+
+footer p{
+    margin: 3rem 10rem;
+    padding-top: 2rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+
+
+
+/*##----CONTACT---#################################################################################################################### */
+.contact{
+    margin: 8rem 10rem;
+    border-top: 1px solid #ccc;
+}
+
+
+.contact .contact-items{
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact .contact-items .contact-item-button{
+    width:  50vw;
+    /* background: #2222225c; */
+
+
+}
+
+.contact .contact-items .contact-item-button .contact-items-text{
+    margin-bottom: 4rem;
+}
+.contact .contact-items .contact-item-button .contact-items-text .title-contact{
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.contact .contact-items .contact-item-button button{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    background: var(--dark-color);
+    width: 3rem;
+    height: 3rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+
+.contact .contact-items .contact-item-image{
+    width: 50vw;
+}
+
+.contact .contact-items .contact-item-image img{
+    height: 26rem;
+    width: 1005;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*##----MOBILE---#################################################################################################################### */
+@media screen and (max-width: 768px){
+    header .nav-bar{
+        padding: 25px 20px;
+    }
+    .section{
+        padding: 25px20px;
+    }
+    .nav-menu-btn{
+        display: block;
+        color: var(--white-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    .nav-close-btn{
+        display: block;
+        color: var(--dark-color);
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.3rem;
+        margin: 10px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .navigation{
+        z-index: 99999;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s ease;
+    }
+
+    .navigation.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+
+    .navigation .nav-items{
+        position: relative;
+        background: var(--white-color);
+        width: 400px;
+        max-width: 400px;
+        display: grid;
+        place-content: center;
+        margin: 20px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: var(--box-shadow);
+        /* //chạy từ trn6 xuống */
+        transform: translateY(-200px);
+        transition: 0.3s ease;
+    }
+    .navigation.active .nav-items{
+        transform:  translateY(0);
+    }
+
+
+
+    .navigation .nav-items a{
+        color: var(--dark-color);
+        font-size: 1em;
+        margin: 15px 50px;
+        transition: 0.3s ease;
+    }
+
+
+    .navigation .nav-items a:hover{
+        color: var(--navigation-item-hover-color);
+    }
+
+
+
+
+    .navigation .nav-items a i{
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-right: 5px;
+
+    }
+
+}
